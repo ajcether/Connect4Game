@@ -1,3 +1,4 @@
+
 #include "stdafx.h"
 #include "Controller.h"
 
@@ -43,22 +44,34 @@ namespace Connect4Tests
 		//[ClassCleanup()]
 		//static void MyClassCleanup() {};
 		//
+
+		Controller *c;
 		//Use TestInitialize to run code before running each test
-		//[TestInitialize()]
-		//void MyTestInitialize() {};
-		//
+		[TestInitialize()]
+		void MyTestInitialize() {
+			c = new Controller();
+		};
+		
 		//Use TestCleanup to run code after each test has run
-		//[TestCleanup()]
-		//void MyTestCleanup() {};
-		//
+		[TestCleanup()]
+		void MyTestCleanup() {
+			delete c;
+		};
+		
 		#pragma endregion 
 
 		[TestMethod]
-		void TestMethod1()
-		{
-			//
-			// TODO: Add test logic here
-			//
+		void CheckRight_NoNeighbours_ShouldReturn0()
+		{			
+			int total = c -> CheckRight();
+			Assert::AreEqual( 0, total );		
+		};
+
+		[TestMethod]
+		void CheckRight_OneSameColour_ShouldReturn1()
+		{			
+			int total = c -> CheckRight();
+			Assert::AreEqual( 1, total );		
 		};
 	};
 }

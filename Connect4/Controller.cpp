@@ -6,11 +6,12 @@ using namespace std;
 
 Controller::Controller()
 {
-	cout << "Hello World!" << endl;
-	_getch();
 }
-
 
 Controller::~Controller()
 {
+}
+
+int Controller::CheckRight(){
+	return 0;
 }
